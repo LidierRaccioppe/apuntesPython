@@ -73,19 +73,44 @@ class VentanaPrincipal(QMainWindow):
 
         gridSonido = QGridLayout()
         cajaHPrincipal2.addLayout(gridSonido)
+        lblSondio = QLabel("Sonido: ")
+        lblRitmo = QLabel("Ritmo: ")
+        lblVolumen = QLabel("Volumen: ")
+        lblFormato = QLabel("Formato: ")
+        lblSalidaAudio = QLabel("Salida de Audio: ")
+
+        comSon = QComboBox()
+        comRitmo = QComboBox()
+        comVolumen = QComboBox()
+        comFormato = QComboBox()
+        comSalida = QComboBox()
+
+        gridSonido.addItem(lblSondio,0,0,1,1)
+        gridSonido.addItem(comSon,0,1,1,1)
+        gridSonido.addItem(lblVolumen,1,0,1,1)
+        gridSonido.addItem(lblRitmo,1,1,1,1)
+        gridSonido.addItem(lblFormato,2,0,1,1)
+        gridSonido.addItem(comFormato,2,1,1,1)
+        gridSonido.addItem(lblSondio,3,0,1,1)
+        gridSonido.addItem(comSalida,3,1,1,1)
+
+
 
         caja5 = QHBoxLayout()
+
+
+
+
+
         frmOpcRepro = QFrame()
 
 
-
+        frmOpcRepro.setFrameStyle(QFrame.Shape.Box)
 
 
         gridReproduccion = QGridLayout()
         frmOpcRepro.setLayout(caja5)
         frmOpcRepro.setWindowTitle("Opciones de reproduccion")
-
-
         cajaHPrincipal2.addWidget(frmOpcRepro)
 
 
