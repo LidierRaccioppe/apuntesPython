@@ -1,7 +1,7 @@
 import sys
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget, QLineEdit, QCheckBox, \
-    QRadioButton, QHBoxLayout, QListView, QComboBox, QGridLayout, QFrame
+    QRadioButton, QHBoxLayout, QListView, QComboBox, QGridLayout, QFrame, QGroupBox
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPixmap
 
@@ -26,12 +26,12 @@ class VentanaPrincipal(QMainWindow):
 
         lblImagen = QLabel()
         lblImagen.setPixmap(QPixmap("giu.png"))
-
         cajaVTerciariaBase.addWidget(lblImagen)
 
         self.chkBoton2 = QCheckBox ("Animado")
         self.chkBoton2.toggled.connect(self.on_chkBoton2_toggled)
         cajaVTerciariaBase.addWidget(self.chkBoton2)
+        cajaVTerciariaBase.setAlignment(Qt.AlignmentFlag.AlignTop)
 
         cajaVSecundaria1.addLayout(cajaVTerciariaBase)
         cajaHPrincipal1.addLayout(cajaVSecundaria1)
@@ -85,32 +85,29 @@ class VentanaPrincipal(QMainWindow):
         comFormato = QComboBox()
         comSalida = QComboBox()
 
-        gridSonido.addItem(lblSondio,0,0,1,1)
-        gridSonido.addItem(comSon,0,1,1,1)
-        gridSonido.addItem(lblVolumen,1,0,1,1)
-        gridSonido.addItem(lblRitmo,1,1,1,1)
-        gridSonido.addItem(lblFormato,2,0,1,1)
-        gridSonido.addItem(comFormato,2,1,1,1)
-        gridSonido.addItem(lblSondio,3,0,1,1)
-        gridSonido.addItem(comSalida,3,1,1,1)
-
-
+        gridSonido.addWidget(lblSondio,0,0,1,1)
+        gridSonido.addWidget(comSon,0,1,1,1)
+        gridSonido.addWidget(lblRitmo,1,0,1,1)
+        gridSonido.addWidget(comRitmo,1,1,1,1)
+        gridSonido.addWidget(lblVolumen,2,0,1,1)
+        gridSonido.addWidget(comVolumen,2,1,1,1)
+        gridSonido.addWidget(lblFormato,3,0,1,1)
+        gridSonido.addWidget(comFormato,3,1,1,1)
+        gridSonido.addWidget(lblSalidaAudio,4,0,1,1)
+        gridSonido.addWidget(comSalida,4,1,1,1)
 
         caja5 = QHBoxLayout()
 
+        frmOpcRepro = QGroupBox("Opciones de reproduccion")
 
+        frmOpcRepro.setStyleSheet("QGroupBox::title { subcontrol-origin: top right; }")
 
+        frmOpcRepro.setLayout(caja5)
 
-
-        frmOpcRepro = QFrame()
-
-
-        frmOpcRepro.setFrameStyle(QFrame.Shape.Box)
 
 
         gridReproduccion = QGridLayout()
         frmOpcRepro.setLayout(caja5)
-        frmOpcRepro.setWindowTitle("Opciones de reproduccion")
         cajaHPrincipal2.addWidget(frmOpcRepro)
 
 

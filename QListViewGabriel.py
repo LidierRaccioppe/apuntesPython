@@ -44,7 +44,7 @@ class VentanaPrincipal(QMainWindow):
         # Llamamos al constructor de la superclase
         super().__init__()
 
-        self.setWindowTitle( "QListView")
+        self.setWindowTitle( "Ejemplo QListView")
         self.setFixedSize(400,300)
 
         listaTareas=[(False,'Una tarea'),(False,'Segunda tarea')]
